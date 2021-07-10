@@ -1,11 +1,41 @@
 backend:
   name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
+  branch: master
 
 media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: "work"
+    label: "Work"
+    folder: "content/work"
+    format: "frontmatter"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    nested:
+      depth: 100
+      summary: "{{title}}"
+    fields:
+      - { label: "Name", name: "title", widget: "string" }
+      - { label: "Medium", name: "medium", widget: "string" }
+      - {
+          label: "Dimensions",
+          name: "dimensions",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Price",
+          name: "price",
+          widget: "Number",
+          value_type: "float",
+          min: 0,
+        }
+      - { label: "Description", name: "description", widget: "text" }
+    meta: { path: { widget: string, label: "Path", index_file: "index" } }
+
   - name: "blog"
     label: "Blog"
     folder: "content/blog"
