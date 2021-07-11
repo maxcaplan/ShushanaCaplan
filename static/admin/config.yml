@@ -29,11 +29,12 @@ collections:
       - {
           label: "Price",
           name: "price",
-          widget: "Number",
+          widget: "number",
           value_type: "float",
           min: 0,
         }
       - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
     meta: { path: { widget: string, label: "Path", index_file: "index" } }
 
   - name: "blog"
