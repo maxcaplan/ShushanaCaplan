@@ -1,9 +1,11 @@
 <template>
-  <Tutorial />
+  <div id="home"></div>
 </template>
 
 <script>
 export default {
+  name: "home",
+
   head() {
     return {
       script: [
