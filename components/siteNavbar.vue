@@ -49,7 +49,7 @@
               type="text"
               name="price"
               id="price"
-              class="block w-full pr-9 rounded-md border-gray-300"
+              class="block w-full pl-3 pr-9 py-2 rounded-md border border-solid border-gray-300 focus:ring-2"
               placeholder="search..."
             />
 
@@ -169,7 +169,7 @@
             type="text"
             name="price"
             id="price"
-            class="block w-full pr-9 rounded-md border-gray-300"
+            class="block w-full pl-3 pr-9 py-2 rounded-md border border-solid border-gray-300 focus:ring-2"
             placeholder="search..."
           />
 
