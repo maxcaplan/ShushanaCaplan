@@ -19,6 +19,10 @@
   }
 
   @variants responsive {
+    .min-w-one-third {
+      min-width: calc(100% / 3);
+    }
+
     .mw-one-third {
       max-width: calc(100% / 3);
     }

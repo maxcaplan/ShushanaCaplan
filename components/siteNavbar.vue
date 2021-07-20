@@ -2,7 +2,9 @@
   <nav class="bg-white border-b">
     <div class="container mx-auto px-3 sm:px-0">
       <div class="flex justify-between items-center h-16">
-        <p class="text-lg sm:text-2xl font-bold">Shushana Caplan</p>
+        <nuxt-link to="/" class="text-lg sm:text-2xl font-bold"
+          >Shushana Caplan</nuxt-link
+        >
 
         <!-- Desktop Navigation -->
         <div class="hidden lg:flex space-x-4 items-center">
@@ -25,11 +27,11 @@
                 /></svg
             ></a>
 
-            <a
-              href="#"
+            <nuxt-link
+              to="about"
               class="px-3 py-2 rounded-md hover:bg-gray-100 focus:ring-2"
-              >About</a
-            >
+              >About
+            </nuxt-link>
 
             <a
               href="#"
@@ -145,11 +147,13 @@
             </div>
           </a>
 
-          <a
+          <nuxt-link
+            to="/about"
             href="#"
             class="px-3 py-2 rounded-md text-center hover:bg-gray-100 focus:ring-2"
-            >About</a
           >
+            About
+          </nuxt-link>
 
           <a
             href="#"
