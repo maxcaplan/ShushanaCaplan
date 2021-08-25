@@ -9,7 +9,6 @@ collections:
   - name: "work"
     label: "Work"
     folder: "content/work"
-    format: "frontmatter"
     create: true
     slug: "{{slug}}"
     editor:
@@ -33,13 +32,18 @@ collections:
           value_type: "float",
           min: 0,
         }
-      - { label: "Description", name: "description", widget: "text" }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: false,
+        }
       - { label: "Image", name: "image", widget: "image" }
     meta: { path: { widget: string, label: "Path", index_file: "index" } }
 
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
+  - name: "categories"
+    label: "Categories"
+    folder: "content/categories"
     format: "frontmatter"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -47,6 +51,5 @@ collections:
       preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Thumbnail", name: "image", widget: "image" }
