@@ -10,7 +10,8 @@ collections:
     label: "Work"
     folder: "content/work"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{field.slug}}"
+    meta: { path: { widget: string, label: "Path", index_file: "index" } }
     editor:
       preview: false
     nested:
@@ -39,7 +40,12 @@ collections:
           required: false,
         }
       - { label: "Image", name: "image", widget: "image" }
-    meta: { path: { widget: string, label: "Path", index_file: "{{slug}}" } }
+      - {
+          name: slug,
+          label: Slug,
+          widget: slug,
+          slug: "{{year}}-{{month}}-{{day}}-{{title}}",
+        }
 
   - name: "categories"
     label: "Categories"
