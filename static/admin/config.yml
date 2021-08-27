@@ -8,7 +8,7 @@ public_folder: /img
 collections:
   - name: "abstract_landscapes"
     label: "Abstract Landscapes"
-    folder: "content/abstract_landscapes"
+    folder: "content/work/abstract_landscapes"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     editor:
