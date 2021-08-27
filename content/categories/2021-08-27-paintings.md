@@ -1,5 +1,5 @@
 ---
-title: Paintings
-description: Lorem Ipsum Dolar
+title: Abstract Landscapes
+description: Lorem Ipsum
 image: /img/springimpressions.jpg
 ---
