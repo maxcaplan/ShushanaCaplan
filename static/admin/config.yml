@@ -10,12 +10,12 @@ collections:
     label: "Work"
     folder: "content/work"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     editor:
       preview: false
     nested:
       depth: 100
-      summary: "{{title}}"
+      summary: "{{meta.path}}"
     fields:
       - { label: "Name", name: "title", widget: "string" }
       - { label: "Medium", name: "medium", widget: "string" }
