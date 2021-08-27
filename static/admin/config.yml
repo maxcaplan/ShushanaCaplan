@@ -6,17 +6,13 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "work"
-    label: "Work"
-    folder: "content/work"
+  - name: "abstract_landscapes"
+    label: "Abstract Landscapes"
+    folder: "content/abstract_landscapes"
     create: true
-    slug: "{{field.slug}}"
-    meta: { path: { widget: string, label: "Path", index_file: "index" } }
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     editor:
       preview: false
-    nested:
-      depth: 100
-      summary: "{{meta.path}}"
     fields:
       - { label: "Name", name: "title", widget: "string" }
       - { label: "Medium", name: "medium", widget: "string" }
@@ -40,12 +36,6 @@ collections:
           required: false,
         }
       - { label: "Image", name: "image", widget: "image" }
-      - {
-          name: slug,
-          label: Slug,
-          widget: slug,
-          slug: "{{year}}-{{month}}-{{day}}-{{title}}",
-        }
 
   - name: "categories"
     label: "Categories"
