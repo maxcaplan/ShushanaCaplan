@@ -39,7 +39,7 @@ collections:
           required: false,
         }
       - { label: "Image", name: "image", widget: "image" }
-    meta: { path: { widget: string, label: "Path", index_file: "index" } }
+    meta: { path: { widget: string, label: "Path", index_file: "{{slug}}" } }
 
   - name: "categories"
     label: "Categories"
