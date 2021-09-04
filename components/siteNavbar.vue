@@ -9,8 +9,8 @@
         <!-- Desktop Navigation -->
         <div class="hidden lg:flex space-x-4 items-center">
           <div class="flex space-x-4">
-            <a
-              href="#"
+            <Nuxt-link
+              to="/work"
               class="px-3 py-2 rounded-md hover:bg-gray-100 focus:ring-2 flex items-center space-x-1"
             >
               <p>Work</p>
@@ -25,25 +25,13 @@
                   d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                   clip-rule="evenodd"
                 /></svg
-            ></a>
+            ></Nuxt-link>
 
             <nuxt-link
-              to="about"
+              to="/about"
               class="px-3 py-2 rounded-md hover:bg-gray-100 focus:ring-2"
               >About
             </nuxt-link>
-
-            <a
-              href="#"
-              class="px-3 py-2 rounded-md hover:bg-gray-100 focus:ring-2"
-              >Events</a
-            >
-
-            <a
-              href="#"
-              class="px-3 py-2 rounded-md hover:bg-gray-100 focus:ring-2"
-              >Blog</a
-            >
           </div>
 
           <div class="relative rounded-md">
@@ -123,8 +111,8 @@
         :class="mobileMenuOpen ? 'flex' : 'hidden'"
       >
         <div class="w-full flex flex-col space-y-1">
-          <a
-            href="#"
+          <Nuxt-link
+            to="/work"
             class="px-3 py-2 rounded-md hover:bg-gray-100 focus:ring-2 flex items-center justify-center space-x-1 relative"
           >
             <p>Work</p>
@@ -145,7 +133,7 @@
                 />
               </svg>
             </div>
-          </a>
+          </Nuxt-link>
 
           <nuxt-link
             to="/about"

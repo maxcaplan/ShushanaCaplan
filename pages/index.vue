@@ -1,7 +1,10 @@
 <template>
   <div id="home">
     <!-- Main Banner -->
-    <div class="w-full py-14 md:py-24 bg-gray-400">
+    <div
+      class="w-full py-24 md:py-48 bg-cover bg-cener bg-no-repeat"
+      style="background-image: url('/img/watersedge.jpg')"
+    >
       <div class="container mx-auto px-3 sm:px-0">
         <p class="text-5xl md:text-7xl font-bold text-white text-shadow-md">
           Shushana <br />
@@ -119,16 +122,20 @@
 
       <div class="flex flex-col space-y-4">
         <div>
-          <p class="inline text-3xl font-bold border-b-2 border-gray-500">
+          <p class="inline text-3xl font-bold border-b-2 border-gray-300">
             Recent Work
           </p>
         </div>
 
-        <!-- TODO: Add recent works -->
+        <div class="grid grid-cols-3 gap-4">
+          <div v-for="work in works" :key="work.slug">
+            <WorkCard :work="work" />
+          </div>
+        </div>
 
         <div class="flex justify-center">
-          <a
-            href="#"
+          <nuxt-link
+            to="work"
             class="flex flex-row space-x-3 items-center rounded-md bg-white border border-gray-300 fill-current text-gray-700 py-4 px-6 hover:bg-gray-100"
           >
             <p class="font-bold">
@@ -147,7 +154,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-          </a>
+          </nuxt-link>
         </div>
       </div>
     </div>
@@ -163,6 +170,17 @@ export default {
       script: [
         { src: "https://identity.netlify.com/v1/netlify-identity-widget.js" }
       ]
+    };
+  },
+
+  async asyncData({ $content }) {
+    const works = await $content("work", { deep: true })
+      .sortBy("createdAt", "desc")
+      .limit(6)
+      .fetch();
+
+    return {
+      works
     };
   }
 };
