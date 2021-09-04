@@ -27,11 +27,17 @@
                 /></svg
             ></Nuxt-link>
 
-            <nuxt-link
+            <Nuxt-link
               to="/about"
               class="px-3 py-2 rounded-md hover:bg-gray-100 focus:ring-2"
               >About
-            </nuxt-link>
+            </Nuxt-link>
+
+            <Nuxt-link
+              to="/events"
+              class="px-3 py-2 rounded-md hover:bg-gray-100 focus:ring-2"
+              >Events
+            </Nuxt-link>
           </div>
 
           <div class="relative rounded-md">
