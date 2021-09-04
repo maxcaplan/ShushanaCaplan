@@ -61,7 +61,6 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
       - {
           label: "Start time",
           name: "start",
@@ -72,3 +71,15 @@ collections:
           format: "LLL",
           picker_utc: false,
         }
+      - {
+          label: "End time",
+          name: "end",
+          widget: "datetime",
+          default: "",
+          date_format: "DD.MM.YYYY",
+          time_format: "HH:mm",
+          format: "LLL",
+          picker_utc: false,
+          required: false,
+        }
+      - { label: "Body", name: "body", widget: "markdown" }
