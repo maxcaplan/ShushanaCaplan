@@ -9,23 +9,41 @@
         <!-- Desktop Navigation -->
         <div class="hidden lg:flex space-x-4 items-center">
           <div class="flex space-x-4">
-            <Nuxt-link
-              to="/work"
-              class="px-3 py-2 rounded-md hover:bg-gray-100 focus:ring-2 flex items-center space-x-1"
-            >
-              <p>Work</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
+            <div class="group inline-block relative">
+              <Nuxt-link
+                to="/work"
+                class="px-3 py-2 rounded-md group-hover:bg-gray-100 focus:ring-2 flex items-center space-x-1"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                /></svg
-            ></Nuxt-link>
+                <p>Work</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </Nuxt-link>
+
+              <ul
+                class="absolute hidden text-gray-900 pt-1 group-hover:inline-block w-56"
+              >
+                <div class="rounded border border-gray-200">
+                  <li v-for="collection in collections" :key="collection.slug">
+                    <Nuxt-link
+                      class="bg-white hover:bg-gray-100 py-2 px-4 block whitespace-no-wrap"
+                      :to="'/works/' + collection.slug"
+                    >
+                      {{ collection.title }}
+                    </Nuxt-link>
+                  </li>
+                </div>
+              </ul>
+            </div>
 
             <Nuxt-link
               to="/about"
@@ -119,35 +137,19 @@
         <div class="w-full flex flex-col space-y-1">
           <Nuxt-link
             to="/work"
-            class="px-3 py-2 rounded-md hover:bg-gray-100 focus:ring-2 flex items-center justify-center space-x-1 relative"
+            href="#"
+            class="px-3 py-2 rounded-md text-center hover:bg-gray-100 focus:ring-2"
           >
-            <p>Work</p>
-
-            <div
-              class="absolute inset-y-0 right-0 flex items-center justify-center pr-3"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
+            Work
           </Nuxt-link>
 
-          <nuxt-link
+          <Nuxt-link
             to="/about"
             href="#"
             class="px-3 py-2 rounded-md text-center hover:bg-gray-100 focus:ring-2"
           >
             About
-          </nuxt-link>
+          </Nuxt-link>
 
           <a
             href="#"
@@ -199,8 +201,15 @@
 export default {
   data() {
     return {
-      mobileMenuOpen: false
+      mobileMenuOpen: false,
+      collections: []
     };
+  },
+
+  async fetch() {
+    this.collections = await this.$content("categories", { deep: true })
+      .sortBy("title")
+      .fetch();
   },
 
   mounted() {
