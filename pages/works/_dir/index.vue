@@ -2,7 +2,7 @@
   <div id="work" class="container mx-auto p-3 sm:px-0 space-y-5">
     <div class="flex flex-row space-x-3">
       <p class="inline text-3xl font-bold border-b-2 border-gray-300">
-        Abstract Landscape
+        {{ category.title }}
       </p>
 
       <div class="flex flex-grow justify-end">
@@ -28,6 +28,8 @@
       </div>
     </div>
 
+    <p class="text-gray-600">{{ category.description }}</p>
+
     <div class="grid grid-cols-3 gap-4">
       <div v-for="work in works" :key="work.slug">
         <WorkCard :work="work" />
@@ -45,8 +47,11 @@ export default {
       .sortBy("createdAt", "desc")
       .fetch();
 
+    const category = await $content("categories/" + params.dir).fetch();
+
     return {
-      works
+      works,
+      category
     };
   }
 };

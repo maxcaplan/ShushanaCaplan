@@ -7,7 +7,7 @@
         <p class="text-xl flex flex-grow">{{ collection.title }}</p>
 
         <nuxt-link
-          to="/works/abstract_landscapes"
+          :to="'/works/' + collection.slug"
           class="rounded p-2 bg-white hover:bg-gray-100"
         >
           <svg
